@@ -8,8 +8,6 @@ function formatData(data) {
     let formattedData = [];
 
     for (let element of Data) {
-        let marked = false;
-
         if (isSubmodule(element.type)) {
             submodules = submodules.concat(element);
         }
@@ -17,8 +15,6 @@ function formatData(data) {
             parentModule = element;
 
             if (parentModule && submodules.length > 0) {
-                console.log('element while parentmodule exists ', element.name);
-                console.log('parentmodule:', parentModule.name);
                 formattedData = formattedData.concat({
                     ...parentModule,
                     submodules
